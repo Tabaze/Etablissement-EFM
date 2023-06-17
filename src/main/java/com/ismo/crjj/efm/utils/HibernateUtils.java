@@ -5,6 +5,8 @@ import org.hibernate.boot.registry.StandardServiceRegistryBuilder;
 import org.hibernate.cfg.Configuration;
 import org.hibernate.service.ServiceRegistry;
 
+import com.ismo.crjj.efm.beans.Etablissement;
+
 
 public class HibernateUtils {
 	
@@ -16,7 +18,7 @@ public class HibernateUtils {
 		config.configure();
 		
 		
-		//config.addAnnotatedClass(Produit.class);
+		config.addAnnotatedClass(Etablissement.class);
 		
 		serviceRegistry = new StandardServiceRegistryBuilder().applySettings(config.getProperties()).build();
 		sessionFactory = config.buildSessionFactory(serviceRegistry);
