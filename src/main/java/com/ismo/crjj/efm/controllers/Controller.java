@@ -21,7 +21,8 @@ import com.ismo.crjj.efm.dao.IDao;
 @WebServlet(name = "controllers", urlPatterns = { "/do/*" })
 public class Controller extends HttpServlet {
 	private static final long serialVersionUID = 1L;
-	IDao<Etablissement> dao=new DAOEtablissement();
+	IDao<Etablissement> dao = new DAOEtablissement();
+
 	/**
 	 * @see HttpServlet#HttpServlet()
 	 */
@@ -49,9 +50,13 @@ public class Controller extends HttpServlet {
 			etabAdd.setNom_Etab(request.getParameter("nom"));
 			etabAdd.setAdresse_etab(request.getParameter("adress"));
 			etabAdd.setTel_etab(request.getParameter("tele"));
-			request.setAttribute("added", dao.save(etabAdd));
-			request.setAttribute("etablissement", dao.getAll());
-			request.getRequestDispatcher("/pages/tableEtab.jsp").forward(request, response);
+			request.setAttribute("added", dao.save(etabAdd)==true? "added":"echec");
+			request.getRequestDispatcher("/index.jsp").forward(request, response);
+			break;
+		case "/delete":
+			Etablissement etabDelete = dao.getOne(Integer.valueOf(request.getParameter("id")));
+			request.setAttribute("deleted", dao.delete(etabDelete)==true? "delete":"echec");
+			request.getRequestDispatcher("/index.jsp").forward(request, response);
 			break;
 		default:
 			break;

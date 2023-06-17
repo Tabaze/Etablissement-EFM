@@ -13,7 +13,7 @@
 </head>
 <body>
 	<c:choose>
-		<c:when test="${param.added eq 'true'}">
+		<c:when test="${param.added eq 'added'}">
 			<div class="alert alert-success alert-dismissible fade show"
 				role="alert">
 				<strong>Ajouter Avec Success</strong> 
@@ -21,10 +21,28 @@
 					aria-label="Close"></button>
 			</div>
 		</c:when>
-		<c:when test="${param.added eq 'false'}">
+		<c:when test="${param.added eq 'echec'}">
 			<div class="alert alert-danger alert-dismissible fade show"
 				role="alert">
 				<strong>Echec De Ajouter</strong> 
+				<button type="button" class="btn-close" data-bs-dismiss="alert"
+					aria-label="Close"></button>
+			</div>
+		</c:when>
+	</c:choose>
+	<c:choose>
+		<c:when test="${param.deleted eq 'delete'}">
+			<div class="alert alert-success alert-dismissible fade show"
+				role="alert">
+				<strong>Supprimer Avec Success</strong> 
+				<button type="button" class="btn-close" data-bs-dismiss="alert"
+					aria-label="Close"></button>
+			</div>
+		</c:when>
+		<c:when test="${param.deleted eq 'echec'}">
+			<div class="alert alert-danger alert-dismissible fade show"
+				role="alert">
+				<strong>Echec De Supprimer</strong> 
 				<button type="button" class="btn-close" data-bs-dismiss="alert"
 					aria-label="Close"></button>
 			</div>
@@ -54,7 +72,7 @@
 					<td>${etab.getNom_Etab() }</td>
 					<td>${etab.getAdresse_etab() }</td>
 					<td>${etab.getTel_etab() }</td>
-					<td><a href="/do/delete?id=${etab.getCode_etab() }"
+					<td><a href="../index.jsp?direct=delete&id=${etab.getCode_etab() }"
 						class="btn btn-danger"><i class="fa-solid fa-trash"></i></a></td>
 				</tr>
 			</c:forEach>
