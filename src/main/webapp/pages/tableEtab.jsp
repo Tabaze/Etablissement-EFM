@@ -14,10 +14,13 @@
 <body>
 
 	<div class="d-flex justify-content-end m-3">
-		<a href="#" class="btn btn-success"><i class="fa-solid fa-plus"></i>
-			Nouvelle Etablissment</a>
+		<a href="/do/goAdd" class="btn btn-success"><i
+			class="fa-solid fa-plus"></i> Nouvelle Etablissment</a>
 	</div>
-	<table class="table">
+	<table class="table  caption-top" style="width:80%;margin:auto;">
+		<caption>
+			<b><h3>Liste Des Etablissments</h3></b>
+		</caption>
 		<thead class="table-dark">
 			<tr>
 				<th scope="col">Code Etablissment</th>
@@ -30,11 +33,12 @@
 		<tbody>
 			<c:forEach var="etab" items="${etablissement}">
 				<tr>
-					<th scope="row">1</th>
-					<td>Mark</td>
-					<td>Otto</td>
-					<td>@mdo</td>
-					<td>@mdo</td>
+					<th scope="row">${etab.getCode_etab() }</th>
+					<td>${etab.getNom_Etab() }</td>
+					<td>${etab.getAdresse_etab() }</td>
+					<td>${etab.getTel_etab() }</td>
+					<td><a href="/do/delete?id=${etab.getCode_etab() }"
+						class="btn btn-danger"><i class="fa-solid fa-trash"></i></a></td>
 				</tr>
 			</c:forEach>
 		</tbody>

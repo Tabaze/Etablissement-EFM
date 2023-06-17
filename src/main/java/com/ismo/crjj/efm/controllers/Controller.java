@@ -41,6 +41,13 @@ public class Controller extends HttpServlet {
 			request.setAttribute("etablissement", dao.getAll());
 			request.getRequestDispatcher("/pages/tableEtab.jsp").forward(request, response);
 			break;
+		case "/goAdd":
+			request.getRequestDispatcher("/pages/AddEtab.jsp").forward(request, response);
+			break;
+		case "/etab/add":
+			request.setAttribute("etablissement", dao.getAll());
+			request.getRequestDispatcher("/pages/tableEtab.jsp").forward(request, response);
+			break;
 		default:
 			break;
 		}
