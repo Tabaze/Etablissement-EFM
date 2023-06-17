@@ -39,7 +39,7 @@ public class Controller extends HttpServlet {
 		switch (request.getPathInfo()) {
 		case "/All":
 			request.setAttribute("etablissement", dao.getAll());
-			request.getRequestDispatcher("/pages/login.jsp").forward(request, response);
+			request.getRequestDispatcher("/pages/tableEtab.jsp").forward(request, response);
 			break;
 		default:
 			break;
