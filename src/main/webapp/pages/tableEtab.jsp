@@ -12,12 +12,29 @@
 <link rel="stylesheet" href="../css/all.min.css">
 </head>
 <body>
-
+	<c:choose>
+		<c:when test="${param.added eq 'true'}">
+			<div class="alert alert-success alert-dismissible fade show"
+				role="alert">
+				<strong>Ajouter Avec Success</strong> 
+				<button type="button" class="btn-close" data-bs-dismiss="alert"
+					aria-label="Close"></button>
+			</div>
+		</c:when>
+		<c:when test="${param.added eq 'false'}">
+			<div class="alert alert-danger alert-dismissible fade show"
+				role="alert">
+				<strong>Echec De Ajouter</strong> 
+				<button type="button" class="btn-close" data-bs-dismiss="alert"
+					aria-label="Close"></button>
+			</div>
+		</c:when>
+	</c:choose>
 	<div class="d-flex justify-content-end m-3">
-		<a href="/do/goAdd" class="btn btn-success"><i
+		<a href="../index.jsp?direct=goAdd" class="btn btn-success"><i
 			class="fa-solid fa-plus"></i> Nouvelle Etablissment</a>
 	</div>
-	<table class="table  caption-top" style="width:80%;margin:auto;">
+	<table class="table  caption-top" style="width: 80%; margin: auto;">
 		<caption>
 			<b><h3>Liste Des Etablissments</h3></b>
 		</caption>

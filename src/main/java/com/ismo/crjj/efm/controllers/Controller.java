@@ -44,7 +44,12 @@ public class Controller extends HttpServlet {
 		case "/goAdd":
 			request.getRequestDispatcher("/pages/AddEtab.jsp").forward(request, response);
 			break;
-		case "/etab/add":
+		case "/add":
+			Etablissement etabAdd = new Etablissement();
+			etabAdd.setNom_Etab(request.getParameter("nom"));
+			etabAdd.setAdresse_etab(request.getParameter("adress"));
+			etabAdd.setTel_etab(request.getParameter("tele"));
+			request.setAttribute("added", dao.save(etabAdd));
 			request.setAttribute("etablissement", dao.getAll());
 			request.getRequestDispatcher("/pages/tableEtab.jsp").forward(request, response);
 			break;

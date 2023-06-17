@@ -14,10 +14,9 @@
 <body>
 	<div class="container">
 		<header>Add Etablissemnt</header>
-		<form action="/go/etab/add" method="post">
+		<form action="/Etablissement-EFM/do/add" method="post">
 			<div class="form first">
 				<div class="details personal">
-
 					<div class="fields">
 						<div class="input-field">
 							<label>Nom établissement</label> <input type="text"
@@ -36,7 +35,7 @@
 				</div>
 
 					<div class="buttons">
-						<a href="/do/Add" class="backBtn"> <span
+						<a href="../index.jsp" class="backBtn"> <span
 							class="btnText">Annuler</span>
 						</a>
 

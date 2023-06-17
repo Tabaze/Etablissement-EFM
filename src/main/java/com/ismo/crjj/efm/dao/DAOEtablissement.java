@@ -41,12 +41,9 @@ public class DAOEtablissement implements IDao<Etablissement> {
 		try {
 			Session s = HibernateUtils.getSessionfactory().getCurrentSession();
 			Transaction t = s.beginTransaction();
-			
 			s.save(obj);
-			
 			t.commit();
 			s.close();
-			
 			return true;
 		} catch (Exception ex) {
 			System.out.println("Error " + ex.getMessage());
